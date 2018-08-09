@@ -58,7 +58,7 @@ private static Map<PaymentPlatformEnums, BaseServiceTemplate> services = Maps.ne
 ```  
 
 3.对应枚举的业务实现   
-
+```
 public class AlipayBusinessService extends BaseServiceTemplate{
     
     @override  
@@ -67,5 +67,8 @@ public class AlipayBusinessService extends BaseServiceTemplate{
     }
 
 }
+
+```
+
 
 
