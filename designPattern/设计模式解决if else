@@ -1,0 +1,71 @@
+**设计模式解决 if else if或switch判断**   
+
+1.定义枚举   
+
+```
+public enum PaymentPlatformEnums implements BaseEnum<PaymentPlatformEnums, String> {
+
+	WECHAT("WECHAT", "微信支付"),
+
+	ALIPAY("ALIPAY", "支付宝"),
+
+	UPACP("UPACP", "银联"),
+
+	;
+}
+
+```   
+2.定义模板类 
+
+```
+public abstract class BaseServiceTemplate implements BeanNameAware {
+
+private static Map<PaymentPlatformEnums, BaseServiceTemplate> services = Maps.newHashMapWithExpectedSize(10);
+
+	/**
+	 * 获取对应的枚举.
+	 */
+	protected abstract PaymentPlatformEnums getMethod();
+
+  /**
+  	 * 利用Spring, 给托管类增加别名, 并保存在Map中, 非单例模式的托管类不适用.
+  	 */
+  	@Override
+  	public void setBeanName(String name) {
+  
+  		PaymentPlatformEnums platform = this.getMethod();
+  
+  		services.put(platform, this);
+  	}
+  
+  	/**
+  	 * 获取Service实例.
+  	 */
+  	public static BaseServiceTemplate getService(PaymentPlatformEnums platform) {
+  
+  		BaseServiceTemplate service = services.get(platform);
+  
+  		return service;
+  	}
+  	
+  	/**
+     * 执行具体业务操作
+     */
+  	protected abstract Object execute(Parameter parameter);
+
+}
+
+```  
+
+3.对应枚举的业务实现   
+
+public class AlipayBusinessService extends BaseServiceTemplate{
+    
+    @override  
+    protected abstract Object execute(Parameter parameter){
+      //具体业务操作
+    }
+
+}
+
+
