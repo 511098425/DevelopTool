@@ -2,7 +2,6 @@
 
 1.定义枚举   
 
-```
 public enum PaymentPlatformEnums implements BaseEnum<PaymentPlatformEnums, String> {
 
 	WECHAT("WECHAT", "微信支付"),
@@ -14,10 +13,8 @@ public enum PaymentPlatformEnums implements BaseEnum<PaymentPlatformEnums, Strin
 	;
 }
 
-```   
 2.定义模板类 
 
-```
 public abstract class BaseServiceTemplate implements BeanNameAware {
 
 private static Map<PaymentPlatformEnums, BaseServiceTemplate> services = Maps.newHashMapWithExpectedSize(10);
@@ -55,10 +52,7 @@ private static Map<PaymentPlatformEnums, BaseServiceTemplate> services = Maps.ne
 
 }
 
-```  
-
-3.对应枚举的业务实现   
-```
+3.对应枚举的业务实现      
 public class AlipayBusinessService extends BaseServiceTemplate{
     
     @override  
@@ -68,7 +62,6 @@ public class AlipayBusinessService extends BaseServiceTemplate{
 
 }
 
-```
 
 
 
