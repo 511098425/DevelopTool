@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  disruptor:
+    enabled: true
+    multi-producer: true
+    ring-buffer-size: 1024
+    ring-thread-numbers: 5
+    ring-buffer: false
