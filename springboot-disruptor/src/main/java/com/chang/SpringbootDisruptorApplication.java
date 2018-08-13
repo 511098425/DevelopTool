@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringbootDisruptorApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(SpringbootDisruptorApplication.class, args);
-  }
+	public static void main(String[] args) {
+		SpringApplication.run(SpringbootDisruptorApplication.class, args);
+	}
 }

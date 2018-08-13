@@ -5,6 +5,7 @@ import com.lmax.disruptor.spring.boot.event.DisruptorEvent;
 import com.lmax.disruptor.spring.boot.event.handler.DisruptorHandler;
 import com.lmax.disruptor.spring.boot.event.handler.chain.HandlerChain;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Component;
 
 /**
@@ -21,9 +22,9 @@ import org.springframework.stereotype.Component;
 public class SmsDisruptorHandler implements DisruptorHandler<DisruptorEvent> {
 
 
-    @Override
-    public void doHandler(DisruptorEvent event, HandlerChain<DisruptorEvent> handlerChain)
-            throws Exception {
-        log.info("短信收到事件消息：{}", event.toString());
-    }
+	@Override
+	public void doHandler(DisruptorEvent event, HandlerChain<DisruptorEvent> handlerChain)
+			throws Exception {
+		log.info("短信收到事件消息：{}", event.toString());
+	}
 }

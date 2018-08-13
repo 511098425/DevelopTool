@@ -8,6 +8,7 @@ import com.lmax.disruptor.spring.boot.event.handler.chain.HandlerChain;
 import java.util.concurrent.CountDownLatch;
 
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Component;
 
 /**
@@ -22,9 +23,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class EmailDisruptorHandler implements DisruptorHandler<DisruptorEvent> {
 
-    @Override
-    public void doHandler(DisruptorEvent event, HandlerChain<DisruptorEvent> handlerChain)
-            throws Exception {
-        log.info("邮件收到事件消息:{}", event.toString());
-    }
+	@Override
+	public void doHandler(DisruptorEvent event, HandlerChain<DisruptorEvent> handlerChain)
+			throws Exception {
+		log.info("邮件收到事件消息:{}", event.toString());
+	}
 }
